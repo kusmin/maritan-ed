@@ -1,0 +1,35 @@
+#include <iostream>
+#include <stack>
+#include <cctype>
+#include <cstring>
+using namespace std;
+int main ()
+{
+    int s;
+    cin>>s;
+    char str[1000];
+    stack <char> r;
+    while (s--) 
+    {
+        cin>>str;
+        int len = strlen (str);
+
+        for(int aux=0;aux<len;aux++ ) 
+        {
+            if(isalpha(str[aux]))
+                cout << str[aux];
+            else if(str[aux] == ')' ) 
+            {
+                cout << r.top ();
+                r.pop ();
+            }
+
+            else if (str[aux] != '(' )
+                r.push (str[aux]);
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
